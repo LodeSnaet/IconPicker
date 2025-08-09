@@ -48,16 +48,16 @@ class IconPicker extends Plugin
         return Craft::createObject(Settings::class);
     }
 
-public function settingsHtml(): string
-{
-    return Craft::$app->view->renderTemplate(
-        '/_settings',
-        [
-            'settings' => $this->getSettings(),
-            'forms' => Craft::$app->getView()->getTwig()->getExtension(\craft\web\twig\Extension::class)->getFunctions(),
-        ]
-    );
-}
+    public function settingsHtml(): string
+    {
+        return Craft::$app->view->renderTemplate(
+            '_settings',
+            [
+                'settings' => $this->getSettings(),
+                // usually you don't need to pass 'forms', it's available in CP templates globally
+            ]
+        );
+    }
 
 
     private function attachEventHandlers(): void
