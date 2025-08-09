@@ -51,7 +51,7 @@ class IconPicker extends Plugin
     public function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            '_settings',
+            'icon-picker/_settings',
             [
                 'settings' => $this->getSettings(),
             ]
