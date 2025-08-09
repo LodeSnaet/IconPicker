@@ -54,7 +54,6 @@ class IconPicker extends Plugin
             '_settings',
             [
                 'settings' => $this->getSettings(),
-                // usually you don't need to pass 'forms', it's available in CP templates globally
             ]
         );
     }
