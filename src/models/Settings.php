@@ -10,4 +10,14 @@ use craft\base\Model;
  */
 class Settings extends Model
 {
+    public ?string $fontAwesomeKitUrl = null;
+
+    public function rules(): array
+    {
+        return [
+            ['fontAwesomeKitUrl', 'string'],
+            ['fontAwesomeKitUrl', 'url'],
+            ['fontAwesomeKitUrl', 'default', 'value' => ''],
+        ];
+    }
 }
