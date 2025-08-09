@@ -30,17 +30,15 @@ class IconPicker extends Plugin
         ];
     }
 
-    public function init(): void
+    public function init()
     {
         parent::init();
 
-        $this->attachEventHandlers();
-
-        // Any code that creates an element query or loads Twig should be deferred until
-        // after Craft is fully initialized, to avoid conflicts with other plugins/modules
-        Craft::$app->onInit(function() {
-            // ...
-        });
+        // Register the template root so Craft knows where to find plugin templates
+        Craft::$app->view->getTwig()->addPath(
+            __DIR__ . '/../templates', // path to the plugin's templates folder
+            'icon-picker' // namespace used in renderTemplate()
+        );
     }
 
     protected function createSettingsModel(): ?Model
@@ -50,12 +48,9 @@ class IconPicker extends Plugin
 
     public function settingsHtml(): string
     {
-        return Craft::$app->view->renderTemplate(
-            'icon-picker/_settings',
-            [
-                'settings' => $this->getSettings(),
-            ]
-        );
+        return Craft::$app->view->renderTemplate('icon-picker/_settings', [
+            'settings' => $this->getSettings(),
+        ]);
     }
 
 
