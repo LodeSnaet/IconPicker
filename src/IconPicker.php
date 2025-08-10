@@ -52,7 +52,7 @@ class IconPicker extends Plugin
     {
         return \Craft::$app
             ->controller
-            ->renderTemplate('iconPicker/settings/template');
+            ->renderTemplate('iconPicker/settings');
     }
 
     protected function settingsHtml(): ?string
