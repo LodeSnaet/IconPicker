@@ -48,6 +48,13 @@ class IconPicker extends Plugin
         return Craft::createObject(Settings::class);
     }
 
+    public function getSettingsResponse(): mixed
+    {
+        return \Craft::$app
+            ->controller
+            ->renderTemplate('iconPicker/settings/template');
+    }
+
     protected function settingsHtml(): ?string
     {
         return \Craft::$app->getView()->renderTemplate(
